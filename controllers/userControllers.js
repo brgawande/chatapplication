@@ -118,3 +118,31 @@ exports.getSingleUser = async (req, res) => {
     });
   }
 };
+
+exports.logoutUser = async (req, res) => {
+  try {
+    // if (!req.cookies.token) {
+    //   return res.status(401).json({
+    //     success: false,
+    //     message: "Please login first",
+    //   });
+    // }
+    res.cookie("token", "", {
+      httpOnly: true,
+      expires: new Date(Date.now()),
+      secure: true,
+      //   secure: process.env.NODE_ENV === "production", // Use secure cookies in production
+      sameSite: "strict", // Prevent CSRF
+    });
+
+    res.status(200).json({
+      success: true,
+      message: "LoggedOut Successfully",
+    });
+  } catch (error) {
+    res.status(404).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
