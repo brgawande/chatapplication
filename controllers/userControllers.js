@@ -1,7 +1,7 @@
 const User = require("../model/userScehma");
 const bcrypt = require("bcryptjs");
 
-const registerUser = async (req, res) => {
+exports.registerUser = async (req, res) => {
   const { name, email, password, phone } = req.body;
   if (!name || !email || !password || !phone) {
     return res.status(404).json({
@@ -41,5 +41,3 @@ const registerUser = async (req, res) => {
     });
   }
 };
-
-module.exports = { registerUser };
