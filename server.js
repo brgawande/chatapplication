@@ -18,8 +18,8 @@ connectdb();
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // Replace with your frontend's URL
-    credentials: true, // Allow credentials like cookies, authorization headers, etc.
+    origin: "https://chat-application-psi-umber.vercel.app",
+    credentials: true,
   })
 );
 
