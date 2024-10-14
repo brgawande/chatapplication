@@ -34,7 +34,7 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173", // Replace with your frontend's URL
+    origin: "https://chat-application-psi-umber.vercel.app", // Replace with your frontend's URL
     methods: ["GET", "POST"],
   },
 });
